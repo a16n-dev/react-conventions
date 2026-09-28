@@ -42,7 +42,7 @@ export function useAuth() {
 ```tsx
 // AuthProvider.tsx
 import { AuthContext, type AuthContextType } from "./AuthContext";
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 export function AuthProvider({children}: {children: ReactNode}) {
   const authContextValue: AuthContextType = {/*...*/};
