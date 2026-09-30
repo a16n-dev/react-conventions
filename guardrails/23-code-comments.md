@@ -7,7 +7,7 @@ published: true
 
 ## Description
 Code comments should be used sparingly, prefer writing self-documenting code and following common conventions to 
-make code easy to understand. Never use comments to narrate an implemetation
+make code easy to understand. Never use comments to narrate an implementation
 
 Code comments should only be used when one of the following is true:
 * The code is written in an unusual way that would cause a reader to pause and wonder why. In this case, give clear 
