@@ -1,30 +1,18 @@
 :root {
-  color-scheme: light dark;
-  --bg: #fcfcfb;
-  --fg: #1c1c1a;
-  --muted: #6b6b66;
-  --border: #e4e4e0;
-  --surface: #f3f3f0;
-  --accent: #0a66d8;
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: dark;
+  /* Hazel theme tokens, see https://hazel.a16n.dev/tokens */
+  --bg: #282021;
+  --fg: #fff0f4;
+  --muted: #c4b6b9;
+  --border: #3b3234;
+  --surface: #31292a;
+  --accent: #85dacc;
+  --font-sans: "Fira Sans", ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Fira Code", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #141413;
-    --fg: #ececea;
-    --muted: #9a9a94;
-    --border: #2c2c2a;
-    --surface: #1e1e1c;
-    --accent: #6aa8ff;
-  }
-
-  .astro-code,
-  .astro-code span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-  }
+::selection {
+  background: #564d4e;
 }
 
 * {

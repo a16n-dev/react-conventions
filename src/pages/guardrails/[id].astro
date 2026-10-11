@@ -84,11 +84,20 @@ const markdownPath = getMarkdownPath(guardrail);
     font-size: 14px;
   }
 
+  .actions a,
+  .copy {
+    color: var(--muted);
+  }
+
+  .actions a:hover,
+  .copy:hover {
+    color: var(--fg);
+  }
+
   .copy {
     border: 0;
     padding: 0;
     background: none;
-    color: var(--accent);
     font: inherit;
     cursor: pointer;
   }

@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import hazel from "./src/themes/hazel.json" with { type: "json" };
 
 export default defineConfig({
   site: "https://react-conventions.a16n.dev",
@@ -9,7 +10,7 @@ export default defineConfig({
   },
   markdown: {
     shikiConfig: {
-      themes: { light: "github-light", dark: "github-dark" },
+      theme: hazel,
     },
   },
 });
