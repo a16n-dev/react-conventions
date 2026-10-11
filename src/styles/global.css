@@ -1,0 +1,152 @@
+:root {
+  color-scheme: light dark;
+  --bg: #fcfcfb;
+  --fg: #1c1c1a;
+  --muted: #6b6b66;
+  --border: #e4e4e0;
+  --surface: #f3f3f0;
+  --accent: #0a66d8;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141413;
+    --fg: #ececea;
+    --muted: #9a9a94;
+    --border: #2c2c2a;
+    --surface: #1e1e1c;
+    --accent: #6aa8ff;
+  }
+
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.site-header,
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.site-name {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.site-header nav a {
+  color: var(--muted);
+}
+
+main {
+  padding-bottom: 96px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  margin: 24px 0 8px;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 40px 0 12px;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 32px 0 8px;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+:not(pre) > code {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+ul {
+  padding-left: 1.25em;
+}
+
+li + li {
+  margin-top: 4px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  padding: 5px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: transparent;
+  font-family: inherit;
+  white-space: nowrap;
+}

@@ -1,0 +1,103 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  getMarkdownPath,
+  getPublishedGuardrails,
+  getSummary,
+  type Guardrail,
+} from "../../lib/guardrails";
+
+export async function getStaticPaths() {
+  const guardrails = await getPublishedGuardrails();
+  return guardrails.map((guardrail) => ({
+    params: { id: guardrail.id },
+    props: { guardrail },
+  }));
+}
+
+type Props = { guardrail: Guardrail };
+
+const { guardrail } = Astro.props;
+const { Content } = await render(guardrail);
+const markdownPath = getMarkdownPath(guardrail);
+---
+
+<BaseLayout title={guardrail.data.title} description={getSummary(guardrail)} markdownPath={markdownPath}>
+  <a href="/" class="back">← All conventions</a>
+  <h1>{guardrail.data.title}</h1>
+  <div class="meta">
+    {
+      guardrail.data.tags.map((tag) => (
+        <a class="tag" href={`/?tag=${encodeURIComponent(tag)}#conventions`}>
+          {tag}
+        </a>
+      ))
+    }
+    <span class="actions">
+      <a href={markdownPath}>View markdown</a>
+      <button type="button" class="copy" data-markdown-path={markdownPath}>Copy markdown</button>
+    </span>
+  </div>
+  <article>
+    <Content />
+  </article>
+</BaseLayout>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>(".copy");
+
+  button?.addEventListener("click", async () => {
+    const response = await fetch(button.dataset.markdownPath ?? "");
+    await navigator.clipboard.writeText(await response.text());
+    button.textContent = "Copied";
+    setTimeout(() => (button.textContent = "Copy markdown"), 1500);
+  });
+</script>
+
+<style>
+  .back {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .meta .tag:hover {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  .actions {
+    margin-left: auto;
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+  }
+
+  .copy {
+    border: 0;
+    padding: 0;
+    background: none;
+    color: var(--accent);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .copy:hover {
+    text-decoration: underline;
+  }
+
+  article :global(h2:first-child) {
+    margin-top: 24px;
+  }
+</style>

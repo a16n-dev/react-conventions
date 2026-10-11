@@ -1,0 +1,40 @@
+---
+import "../styles/global.css";
+
+type Props = {
+  title: string;
+  description: string;
+  markdownPath?: string;
+};
+
+const { title, description, markdownPath } = Astro.props;
+const siteName = "React Conventions";
+const pageTitle = title === siteName ? title : `${title} · ${siteName}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    {markdownPath && <link rel="alternate" type="text/markdown" href={markdownPath} />}
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="/" class="site-name">{siteName}</a>
+      <nav>
+        <a href="/llms.txt">llms.txt</a>
+        <a href="/llms-full.txt">llms-full.txt</a>
+        <a href="https://github.com/a16n-dev/react-conventions">GitHub</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
