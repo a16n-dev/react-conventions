@@ -24,6 +24,13 @@ Code comments should only be used when one of the following is true:
   it. In this case, leave a TODO comment that references who (always a developer, never an agent) should be 
   responsible for this task, and a very brief description of what is missing/needs doing. 
 
+Use `//` style for code comments, and `/** */` style for doc comments. Doc comments should not include JSDoc 
+annotations such as `@param` or `@returns`, as parameters and return values are already described by the 
+TypeScript types.
+
 Comments should always appear directly above the code it is referencing, and should be reviewed against these 
 guidelines before raising a PR or passing the code to other team members for review.
 
+When using coding agents, add and review comments in a separate pass once the code changes are complete, rather 
+than while writing the code. Agents tend to leave comments that narrate their changes as they go, and a dedicated 
+pass over the finished diff makes it easier to remove these and check what remains against these guidelines.
