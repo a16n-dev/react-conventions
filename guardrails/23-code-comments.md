@@ -1,7 +1,7 @@
 ---
 title: "Sparse comments"
 date: 2026-10-01
-tags: [comments, code style]
+tags: [code style]
 published: true
 ---
 

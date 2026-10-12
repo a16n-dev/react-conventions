@@ -1,7 +1,7 @@
 ---
 title: "Build foundational components"
 date: 2026-07-23
-tags: [react]
+tags: [react, design system]
 published: true
 ---
 

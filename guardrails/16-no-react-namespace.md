@@ -1,7 +1,7 @@
 ---
 title: "No react namespace"
 date: 2026-07-13
-tags: [react]
+tags: [code style, react]
 published: true
 ---
 

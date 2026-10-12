@@ -1,7 +1,7 @@
 ---
 title: "Use PNPM"
 date: 2026-07-13
-tags: [react]
+tags: [project setup]
 published: true
 ---
 

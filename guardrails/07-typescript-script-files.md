@@ -1,7 +1,7 @@
 ---
 title: "Typescript script files"
 date: 2026-06-29
-tags: [code style, code implementation, typescript]
+tags: [project setup, typescript]
 published: true
 ---
 

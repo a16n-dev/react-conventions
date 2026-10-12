@@ -1,7 +1,7 @@
 ---
 title: "Use semantic color tokens"
 date: 2026-10-12
-tags: [styling, design system]
+tags: [design system]
 published: true
 ---
 
